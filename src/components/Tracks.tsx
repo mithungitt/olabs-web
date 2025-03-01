@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Track {
   id: number;
@@ -9,6 +10,7 @@ interface Track {
   description: string;
   icon: string;
   image: string;
+  path: string;
 }
 
 const Tracks = () => {
@@ -18,63 +20,72 @@ const Tracks = () => {
       name: "Mathematics",
       description: "Learn advanced mathematical concepts with interactive simulations",
       icon: "📐",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/mathematics"
     },
     {
       id: 2,
       name: "Language",
       description: "Master new languages with AI-powered conversation practice",
       icon: "🗣️",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/language"
     },
     {
       id: 3,
       name: "Science",
       description: "Explore scientific concepts through virtual experiments",
       icon: "🧪",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/science"
     },
     {
       id: 4,
       name: "Social Science",
       description: "Understand complex social concepts through interactive scenarios",
       icon: "🌍",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/social-science"
     },
     {
       id: 5,
       name: "Computer",
       description: "Build practical coding skills with hands-on projects",
       icon: "💻",
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/computer"
     },
     {
       id: 6,
       name: "3D/AR/VR",
       description: "Create immersive experiences with cutting-edge technologies",
       icon: "🥽",
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/3d-ar-vr"
     },
     {
       id: 7,
       name: "EDP",
       description: "Develop entrepreneurial skills through practical business simulations",
       icon: "📊",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/edp"
     },
     {
       id: 8,
       name: "ISL",
       description: "Learn Indian Sign Language with interactive video lessons",
       icon: "👐",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/isl"
     },
     {
       id: 9,
       name: "Robotics",
       description: "Build and program robots with virtual simulations",
       icon: "🤖",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      path: "/tracks/robotics"
     }
   ];
 
@@ -164,8 +175,10 @@ const Tracks = () => {
                     <span className="inline-block w-6 h-6 rounded-full bg-blue-100"></span>
                     <span className="inline-block w-6 h-6 rounded-full bg-green-100"></span>
                   </div>
-                  <Button variant="ghost" className="text-olabs-orange hover:text-olabs-orange hover:bg-orange-50">
-                    Explore Track
+                  <Button variant="ghost" className="text-olabs-orange hover:text-olabs-orange hover:bg-orange-50" asChild>
+                    <Link to={track.path}>
+                      Explore Track
+                    </Link>
                   </Button>
                 </div>
               </div>
