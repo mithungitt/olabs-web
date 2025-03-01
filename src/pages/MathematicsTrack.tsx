@@ -80,7 +80,8 @@ const MathematicsTrack = () => {
     <div className="min-h-screen bg-olabs-cream">
       <Navbar />
       
-      <div className="container mx-auto px-4 py-8">
+      {/* Added padding-top to fix overlap with navbar */}
+      <div className="container mx-auto px-4 pt-20 py-8">
         <div className="flex items-center text-sm text-gray-500 mb-8">
           <Link to="/" className="hover:text-olabs-purple">Home</Link>
           <ChevronRight size={16} className="mx-1" />
